@@ -1,17 +1,18 @@
 var inicio = new Vue({
-	el:"#inicio",
+	el:"#setor",
     data: {
-        lista: []
+        lista: [], 
+	
     },
     created: function(){
         let vm =  this;
-        vm.listarFuncionarios();
+        vm.listarSetores();
     },
     methods:{
 	//Busca os itens para a lista da primeira página
-        listarFuncionarios: function(){
+        listarSetores: function(){
 			const vm = this;
-			axios.get("/funcionarios/rs/funcionarios")
+			axios.get("/funcionarios/rs/setores")
 			.then(response => {vm.lista = response.data;
 			}).catch(function (error) {
 				vm.mostraAlertaErro("Erro interno", "Não foi listar natureza de serviços");
@@ -19,12 +20,11 @@ var inicio = new Vue({
 			});
 		},
 		
-		DeleteFuncionario(id) {
-			axios.delete('/funcionarios/rs/funcionarios/' + id).then((response)=>{
-			console.log(response);
+		DeleteSetor(id) {
+			axios.delete('/funcionarios/rs/setores/' + id).then((response)=>{
 			
 			if(response.status == 200){
-				alert("Sucesso", "Funcionário Excluído com Sucesso.");
+				alert("Sucesso", "Setor Excluído com Sucesso.");
 				location.reload();
 			}
 			}).catch(function (error) {
