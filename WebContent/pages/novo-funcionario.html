@@ -2,28 +2,74 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" lang="pt-br">
 	<link rel="shortcut icon" href="favicon.ico"/>
 	<title>Cadastrar um novo Funcionário </title>
-	<link rel="stylesheet" type="text/css"
-		href="resources/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css"
-		href="resources/css/main.css">
+	
+	<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"	href="../resources/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
 </head>
 
 <body>
 
-<a href="/funcionarios/index.html">Voltar</a>
-
-<div id="app">
+	<nav class="navbar navbar-dark bg-dark espaco-inferior">
+				<span class="navbar-brand mb-0 h1">Desafio Hepta</span>
+			</nav>
 	
-	<h4>Cadastro de funcionário</h4>
-		
-	<p>Implementar o cadastro de funcionários</p>	
-</div>
+	<div id= "app" class="container">
+	
+	  <div class="row">
+	    <div class="col-4">
+	      <a class="btn btn-primary espaco-inferior" href="/funcionarios/index.html">Voltar</a>
+	    </div>
+	   </div>
+	   
+	   <div class="row">
+	   
+	   		<div class="col-2"></div>
+	   
+		    <div class="col-6">    
+		      <form  @submit="submitFuncionario"> 
+				  <div class="form-group">
+				    <label >Nome:</label>
+				    <input type="tect" class="form-control" v-model="form.nome" aria-describedby="Nome">
+				  </div>
+				  
+				  <div class="form-group">
+				    <label >E-mail:</label>
+				    <input type="email" class="form-control" v-model="form.email" aria-describedby="Email">
+				  </div>
+				
+				<div class="form-group">
+				    <label >Idade:</label>
+				    <input type="number" class="form-control" v-model="form.idade" aria-describedby="Idade">
+				  </div>
+				  
+				  <div class="form-group">
+				    <label >Salário:</label>
+				    <input type="text" class="form-control" v-model="form.salario" aria-describedby="Salário">
+				  </div>
+				  
+				  <div class="form-group">
+				    <label >Setor:</label>
+				    	<select class="form-control" v-model="form.setor.id">
+				    	<option  v-for="setor in lista" :value="setor.id">{{setor.nome}}</option>
+				    </select>
+				  </div>
+				  
+				  <button type="submit" class="btn btn-success right">Cadastrar</button>
+				</form>     
+		    </div>
+	    
+	   		<div class="col-2"></div>
+	   </div>
+	   
+	</div>
 
-	<script src="resources/js/vue.js"></script>
-	<script src="resources/js/axios.min.js"></script>
-	<script src="resources/js/cadastro-de-funcionario.js"></script>
+
+	<script src="../resources/js/vue.js"></script>
+	<script src="../resources/js/axios.min.js"></script>
+	<script src="../resources/js/cadastro-de-funcionario.js"></script>
 </body>
 </html>
